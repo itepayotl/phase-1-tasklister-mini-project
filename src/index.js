@@ -20,7 +20,14 @@ function displayTask(task){
    const taskUl = document.getElementById("tasks")
   
    const taskLi = document.createElement("li")
-   taskLi.textContent = task
-   console.log(taskLi)
+   const deleteButton = document.createElement("button")
+   deleteButton.textContent = "x"
+   deleteButton.addEventListener("click", deleteTask)
+   taskLi.textContent = task + " "
+   taskLi.appendChild(deleteButton)
    taskUl.appendChild(taskLi)
+}
+function deleteTask(e) {
+  console.log(e)
+  e.target.parentNode.remove()
 }
